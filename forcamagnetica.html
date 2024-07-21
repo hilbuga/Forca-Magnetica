@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Força Magnética</title>
+</head>
+<body>
+    <h1>Calculando a força Magnética</h1>
+    <form>
+        <label for="carga">Carga elétrica (q):</label>
+        <input type="number" id="carga" step="0.01"><br><br>
+
+        <label for="velocidade">Velocidade (v):</label>
+        <input type="number" id="velocidade" step="0.01"><br><br>
+
+        <label for="campomagnetico">Campo Magnético (B):</label>
+        <input type="number" id="campomagnetico" step="0.01"><br><br>
+
+        <label for="angulo">Ângulo (teta):</label>
+        <input type="number" id="angulo" step="0.01"><br><br>
+
+        <input type="button" value=" Calcular a força magnética" onclick="calcularforcamagnetica()"><br>
+        
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularforcamagnetica(){
+            const q = parseFloat(document.getElementById('carga').value);
+            const v = parseFloat(document.getElementById('velocidade').value);
+            const B = parseFloat(document.getElementById('campomagnetico').value);
+            const tetha = parseFloat(document.getElementById('angulo').value);
+
+            const radianos = (Math.PI *tetha) / 180;
+
+            const forcamagnetica = q * v * B * Math.sin(radianos);
+
+            document.getElementById('resultado').textContent = "Força Magnética:" + forcamagnetica.toFixed(4) + "N";
+        }
+
+
+    </script>
+    
+</body>
+</html>

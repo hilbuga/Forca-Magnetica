@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Força Magnética</title>
+</head>
+<body>
+    <h1>Calculadora de Força Magnética</h1>
+    
+    <!-- Espaço para inserir os valores de entrada -->
+    <label for="carga">Carga da partícula (Coulombs):</label>
+    <input type="number" id="carga" value="2"><br><br>
+    
+    <label for="velocidade">Velocidade da partícula (m/s):</label>
+    <input type="number" id="velocidade" value="5"><br><br>
+    
+    <label for="campoMagnetico">Campo magnético (Tesla):</label>
+    <input type="number" id="campoMagnetico" value="10"><br><br>
+    
+    <label for="angulo">Ângulo entre a velocidade e o campo magnético (graus):</label>
+    <input type="number" id="angulo" value="30"><br><br>
+    
+    <!-- Botão para calcular a força magnética -->
+    <button onclick="calcularForca()">Calcular Força Magnética</button><br><br>
+    
+    <!-- Espaço para exibir o resultado -->
+    <div id="resultado"></div>
+    
+    <!-- Script JavaScript -->
+    <script>
+        // Função para calcular a força magnética
+        function calcularForca() {
+            var carga = parseFloat(document.getElementById('carga').value);
+            var velocidade = parseFloat(document.getElementById('velocidade').value);
+            var campoMagnetico = parseFloat(document.getElementById('campoMagnetico').value);
+            var angulo = parseFloat(document.getElementById('angulo').value);
+            
+            // Converter o ângulo de graus para radianos
+            var anguloRadianos = (Math.PI*angulo)/180;
+            
+            // Calcular a força magnética usando a fórmula de Lorentz
+            var forca = carga * velocidade * campoMagnetico * Math.sin(anguloRadianos);
+            
+            // Exibir o resultado
+            document.getElementById('resultado').innerHTML = "A força magnética é: " + forca.toFixed(4) + " Newtons";
+        }
+    </script>
+</body>
+</html>
